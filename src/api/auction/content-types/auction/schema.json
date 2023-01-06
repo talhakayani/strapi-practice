@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "auctions",
+  "info": {
+    "displayName": "Auction",
+    "singularName": "auction",
+    "pluralName": "auctions"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "auctionPrice": {
+      "type": "number",
+      "required": true
+    },
+    "nft": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::nft.nft",
+      "mappedBy": "auction"
+    }
+  }
+}

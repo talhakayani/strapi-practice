@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nfts",
+  "info": {
+    "displayName": "Nft",
+    "singularName": "nft",
+    "pluralName": "nfts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 4
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "maxLength": 500,
+      "minLength": 10
+    },
+    "tokenId": {
+      "type": "string",
+      "required": true
+    },
+    "blockchainType": {
+      "type": "enumeration",
+      "enum": [
+        "polygon",
+        "ethereum",
+        "binance"
+      ],
+      "default": "polygon",
+      "required": true
+    },
+    "auction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::auction.auction",
+      "inversedBy": "nft"
+    }
+  }
+}
